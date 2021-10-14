@@ -5,6 +5,7 @@
 img {
   width: 30rem;
   height: 20rem;
+  overflow: hidden;
 }
 body {
   background-color: #17181a;
@@ -54,13 +55,13 @@ body {
   padding-left: 5rem;
   position: relative;
 }
-.people-img {
+.hero-img {
   position: relative;
   flex: 1;
   flex-basis: 25rem;
   overflow: hidden;
 }
-.people-img img {
+.hero-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -132,9 +133,9 @@ body {
 .reveal-text {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 150%;
   left: 0;
-  top: 0;
+  top: -15%;
   background: #17181a;
 }
 .cursor {
@@ -143,4 +144,8 @@ body {
   border: 2px solid white;
   border-radius: 50%;
   position: absolute;
+}
+
+.scrollmagic-pin-spacer {
+  position: static !important;
 }
