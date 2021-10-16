@@ -93,7 +93,65 @@ function navToggle(e) {
     document.body.classList.remove("hide");
   }
 }
+// barba page
+let logo = document.querySelector("#logo");
+barba.init({
+  views: [
+    {
+      namespace: "home",
+      beforeEnter() {
+        animateSlides();
+        logo.href = "./index.html";
+      },
+      beforeLeave() {
+        slideScene.destroy();
+        pageScene.destroy();
+        Controller.destroy();
+      },
+    },
+    {
+      namespace: "refugee",
+      beforeEnter() {
+        logo.href = "../index.html";
+        gsap.fromTo(
+          ".nav-header",
+          1,
+          { x: "100%" },
+          { x: "0%", ease: "power2.inOut" }
+        );
+      },
+    },
+  ],
+  transitions: [
+    {
+      leave({ current, next }) {
+        let done = this.async();
+        const t1 = gsap.timeline({ default: { ease: "power2.inOut" } });
+        t1.fromTo(current.container, 1, { opacity: 1 }, { opacity: 0 });
+        t1.fromTo(
+          ".swipe",
+          0.75,
+          { x: "-100%" },
+          { x: "0%", onComplete: done },
+          "-=0.5"
+        );
+      },
+      enter({ current, next }) {
+        let done = this.async();
+        window.scrollTo(0, 0);
+        const t1 = gsap.timeline({ default: { ease: "power2.inOut" } });
+        t1.fromTo(
+          ".swipe",
+          0.75,
+          { x: "0" },
+          { x: "100%", stagger: 0.25, onComplete: done }
+        );
+        t1.fromTo(next.container, 1, { opacity: 0 }, { opacity: 1 });
+      },
+    },
+  ],
+});
+
 burger.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activecursor);
-animateSlides();

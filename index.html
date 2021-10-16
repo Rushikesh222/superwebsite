@@ -11,7 +11,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body data-barba="wrapper">
     <header class="nav-header">
       <h1><a href="./refugee/index.html" id="logo">life.</a></h1>
       <div class="burger">
@@ -19,7 +19,7 @@
         <div class="line2"></div>
       </div>
     </header>
-    <main>
+    <main data-barba="container" data-barba-namespace="home">
       <section class="mountain slide">
         <div class="hero-img">
           <img src="./img/1.jpg" alt="people image" />
@@ -73,7 +73,7 @@
             who survived and who can create the<br />
             future.
           </p>
-          <a class="explore hunger-exp">Explore</a>
+          <a href="./refugee/index.html" class="explore hunger-exp">Explore</a>
           <div class="reveal-text"></div>
         </div>
       </section>
@@ -95,6 +95,7 @@
     <div class="swipe swipe2"></div>
     <div class="swipe swipe3"></div>
     <script src="https://unpkg.com/@barba/core"></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
       integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
